@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ProjectTrainApp: App {
+    
+ @StateObject private var userBagage = UserBagage()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LandingScreenView()
+                .environmentObject(userBagage)
         }
     }
 }

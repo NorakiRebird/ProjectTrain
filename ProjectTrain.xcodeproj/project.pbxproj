@@ -86,11 +86,12 @@
 				};
 			};
 			buildConfigurationList = 5A79BBC52D7ED55900CF4CB4 /* Build configuration list for PBXProject "ProjectTrain" */;
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 5A79BBC12D7ED55900CF4CB4;
 			minimizedProjectReferenceProxies = 1;
