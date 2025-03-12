@@ -12,13 +12,20 @@ struct BagageView: View {
     @EnvironmentObject var userBagage: UserBagage
     
     var body: some View {
-        VStack {
-           
-            Image(systemName: "bag.fill")
-                .font(.system(size: 90))
-            
-            Text( " Vous avez : \(userBagage.nombreBagage.description) bagages")
-    
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack {
+                
+                Image(systemName: "bag.fill")
+                   
+                    .font(.system(size: 90))
+                    .foregroundColor(.white.opacity(0.7))
+                    .shadow(color: .gray, radius: 10, x: 10, y: 0)
+                
+                Text( " Vous avez : \(userBagage.nombreBagage.description) bagages")
+                    .foregroundColor(.white)
+                
+            }
         }
     }
 }

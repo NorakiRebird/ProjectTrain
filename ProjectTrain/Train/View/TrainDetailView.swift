@@ -15,71 +15,80 @@ struct TrainDetailView: View {
     @EnvironmentObject var combienDeBagage: UserBagage
     
     var body: some View {
-        VStack( alignment: .center){
-            Image(trainInfo.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(height: 200)
-                .cornerRadius(15)
-            
-                    HStack{
-                        Text(trainInfo.name)
-                            .foregroundColor(.primary)
-                            .font(.headline)
-                        Spacer()
-                        Text(trainInfo.destination)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(13)
-                    .padding()
-                   
-            Spacer()
+        ZStack {
+            BackgroundReutilisable()
+            VStack( alignment: .center){
+                Image(trainInfo.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .cornerRadius(15)
                 
-            
-            
-            VStack {
-                
-                HStack {
-                    Button {
-                        combienDeBagage.ajouterBagage()
-                    } label: {
-                        Image(systemName: "bag.badge.plus")
-                            .font(.title)
-                        
-                    }
-                    Text(" Combien de bagages ? \(combienDeBagage.nombreBagage)")
-                        .foregroundColor(.primary)
+                HStack{
+                    Text(trainInfo.name)
                     
-                    
-                    Button {
-                        combienDeBagage.retirerBagage()
-                    } label: {
-                        Image(systemName: "bag.badge.minus")
-                            .font(.title)
-                        
-                    }
-                    
-                 
+                        .foregroundColor(.white)
+                        .font(.headline)
+                    Spacer()
+                    Text(trainInfo.destination)
+                        .font(.headline)
+                        .foregroundColor(.white)
                 }
+                .padding()
+                .background(Color.gray.opacity(0.3))
+                .cornerRadius(13)
+                .padding()
+                
                 Spacer()
-                
-                Button {
-                    combienDeBagage.resetBagage()
-                } label: {
-                    Image(systemName: "bag")
-                        .font(.title)
-                    
-                }
-            }
-            .padding(.vertical, 50)
-            
-           
+                ZStack {
+                    VStack {
+                        HStack {
+                            Button {
+                                combienDeBagage.ajouterBagage()
+                            } label: {
+                                Image(systemName: "bag.badge.plus")
+                                    .font(.title)
+                                
+                            }
+                            Text(" Combien de bagages ? \(combienDeBagage.nombreBagage)")
+                                .foregroundColor(.white)
+                            
+                            
+                            Button {
+                                combienDeBagage.retirerBagage()
+                            } label: {
+                                Image(systemName: "bag.badge.minus")
+                                
+                                    .font(.title)
+                                
+                            }
+                            
+                            
+                        }
+                       
                         
+                        Button {
+                            combienDeBagage.resetBagage()
+                        } label: {
+                            Image(systemName: "bag")
+                                .font(.title)
+                            
+                        }
+                    }
+                    .padding(.vertical, 50)
+                    .padding()
+                    .background(Color.gray.opacity(0.3))
+                    .frame(width: .infinity)
+                }
+               
+                
+                
+                
+            }
+            
+            .padding(.horizontal)
+          
         }
-        .padding(.horizontal)
         
     }
 }

@@ -12,7 +12,7 @@ struct TrainView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                BackgroundReutilisable()
                 ScrollView {
                     ForEach(trainInfos) { train in
                         NavigationLink(destination: TrainDetailView(trainInfo: trainInfos[0])) {
